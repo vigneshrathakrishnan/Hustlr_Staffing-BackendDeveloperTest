@@ -34,9 +34,14 @@ backend/
 
 ## 🚀 Getting Started
 
-### 1. Navigate to the project folder:
+### 1. Clone and Navigate to the project folder:
+
 ```bash
-cd backend
+git clone https://github.com/vigneshrathakrishnan/Hustlr_Staffing-BackendDeveloperTest.git
+```
+
+```bash
+cd Hustlr_Staffing-BackendDeveloperTest
 ```
 
 ### 2. Initialize and install dependencies:
@@ -46,7 +51,7 @@ npm install
 
 ### 3. Start the server:
 ```bash
-node app.js
+npm start 
 ```
 
 By default, the server runs at:  
@@ -108,7 +113,7 @@ http://localhost:5000/products?category=men's clothing
   "price": 0.01,
   "description": "test description..",
   "category": "test1",
-  "image": ""
+  "image": "https://picsum.photos/id/237/200/300"
 }
 ```
 
