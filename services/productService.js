@@ -5,7 +5,7 @@ const axios = require('axios');
 const filePath = path.join(__dirname, '../data/products.json');
 
 async function fetchAndSaveProductsIfNeeded() {
-  if (!fs.existsSync(filePath)) {
+  if (!fs.existsSync(filePath) || isFileEmpty(filePath)) {
     try {
       const res = await axios.get('https://fakestoreapi.com/products');
       fs.writeFileSync(filePath, JSON.stringify(res.data, null, 2));
@@ -14,7 +14,16 @@ async function fetchAndSaveProductsIfNeeded() {
       console.error('Error fetching products:', err.message);
     }
   } else {
-    console.log('Product data already exists.');
+    console.log('Product data already exists and is not empty.');
+  }
+}
+
+function isFileEmpty(path) {
+  try {
+    const stats = fs.statSync(path);
+    return stats.size === 0;
+  } catch (err) {
+    return true;
   }
 }
 
